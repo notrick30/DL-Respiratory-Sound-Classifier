@@ -4,3 +4,6 @@ GUI/static/
 HF_Lung_V1-master/
 
 venv/
+
+lung_sound_classifier.h5
+scaler.pkl

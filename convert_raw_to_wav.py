@@ -1,10 +1,10 @@
+import audio_processing as ap
+
 import numpy as np
 import wave
 
-import audio_processing as ap
-
-rawfname = 'recorded_audio.raw'
-wav_savefname = 'recorded_audio.wav'
+rawfname = "recorded_audio.raw"
+wav_savefname = "recorded_audio.wav"
 sr = 16000
 
 def read_raw_audio(file_path):

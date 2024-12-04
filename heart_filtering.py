@@ -1,8 +1,7 @@
 import numpy as np
 from scipy.signal import butter, filtfilt
-from yodel import filter as ft
-
 import audio_processing as ap
+from yodel import filter as ft
 
 def extract_heart_audio(audio_data, sample_rate):
     """
