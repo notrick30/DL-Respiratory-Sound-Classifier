@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Sound Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #343a40;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff;
+        }
+
+        form {
+            width: 80%;
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #28a745;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            width: 80%;
+            max-width: 500px;
+            margin: 10px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        img {
+            display: block;
+            margin: 20px auto;
+            max-width: 80%;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #6c757d;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lung Sound Classifier</h1>
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label for="audio_file">Upload an audio file (.wav):</label>
+        <input type="file" id="audio_file" name="audio_file" accept=".wav">
+        <button type="submit">Analyze</button>
+    </form>
+
+    {% if predictions %}
+        <h2>Detected Conditions:</h2>
+        <ul>
+            {% for condition in predictions %}
+                <li>{{ condition }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if mel_path %}
+        <h2>Mel Spectrogram:</h2>
+        <img src="{{ mel_path }}" alt="Mel Spectrogram">
+    {% endif %}
+
+    <div class="footer">
+        &copy; 2024 Lung Sound Classifier. All rights reserved.
+    </div>
+</body>
+</html>
